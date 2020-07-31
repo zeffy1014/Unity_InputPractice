@@ -1,0 +1,2 @@
+# Unity_InputPractice
+UniRxとZenject(Extenject)で疎結合かつ各種入力をSubscribeして動かすテスト
