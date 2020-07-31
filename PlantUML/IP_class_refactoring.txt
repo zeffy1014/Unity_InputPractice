@@ -1,0 +1,52 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+enum MoveDist{
+    Right
+    Left
+}
+
+package Player {
+    class Player {
+        + Move(enum MoveDist)
+    }
+}
+
+package InputProvider {
+    class TouchInputProvider {}
+    class PCInputProvider {}
+    class KeyOperation {}
+}
+
+package InputPresenter {
+    class InputPresenter {}
+    class InputProviderBase {}
+}
+
+TouchInputProvider -up-|> InputProviderBase
+PCInputProvider -up-|> InputProviderBase
+
+
+package UI {
+    class RightButton {
+    }
+    class LeftButton {
+    }
+
+}
+
+package UnityEngine {
+    class Input {}
+}
+
+/'依存関係'/
+InputPresenter <.right. InputProviderBase : 各種操作を通知
+InputPresenter -left-> InputProviderBase : Subscribe
+InputPresenter -> Player : 移動させる
+TouchInputProvider <.. LeftButton : ボタン押され中通知
+TouchInputProvider --> LeftButton  : Subscribe
+PCInputProvider <.. KeyOperation : キーボード入力を通知
+PCInputProvider --> KeyOperation : Subscribe
+KeyOperation --> Input
+
+@enduml

@@ -1,0 +1,48 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+enum MoveDist{
+    Left
+    Right
+}
+
+package Player {
+    class Player {
+    }
+    interface IInputProvider {
+        GetMove(enum MoveDist)
+    }
+}
+
+package InputProvider {
+    class TouchInputProvider {}
+    class PCInputProvider {}
+    class KeyOperation {}
+}
+
+TouchInputProvider -up-|> IInputProvider
+PCInputProvider -up-|> IInputProvider
+
+
+package UI {
+    class RightButton {
+        + bool IsPushDown
+    }
+    class LeftButton {
+        + bool IsPushDown
+    }
+}
+note bottom of RightButton : OnPointerDown, OnpointerUpの\nEventTriggerでボタンが押されているか\n状態を保持する
+
+package UnityEngine {
+    class Input {}
+}
+
+/'依存関係'/
+Player -left> IInputProvider : 各種操作を取得
+TouchInputProvider --> LeftButton : ボタンが押されているか確認
+TouchInputProvider --> RightButton
+PCInputProvider --> KeyOperation : キーボード入力を取得
+KeyOperation --> Input
+
+@enduml
