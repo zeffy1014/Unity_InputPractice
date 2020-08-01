@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2576644166965069901}
   - component: {fileID: 2576644166965069898}
   m_Layer: 5
-  m_Name: RightButton
+  m_Name: MoveButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -94,7 +94,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -131,7 +131,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fda768a78a44e7d40a95a590a537b61c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonIndex: 0
+  defaultImage: {fileID: 21300000, guid: 42d3cf66bbf054f4582ddeef01be6a24, type: 3}
+  pushImage: {fileID: 21300000, guid: b5f6683b04c98c442ad6801d3d4325ee, type: 3}
 --- !u!114 &2576644166965069898
 MonoBehaviour:
   m_ObjectHideFlags: 0
