@@ -5,9 +5,9 @@ using Zenject;
 
 public class InputInstaller : MonoInstaller<InputInstaller>
 {
-    [SerializeField] Player player;
-    [SerializeField] MoveButton rightButton;
-    [SerializeField] MoveButton leftButton;
+    [SerializeField] Player player = default;
+    [SerializeField] MoveButton rightButton = default;
+    [SerializeField] MoveButton leftButton = default;
 
     public override void InstallBindings()
     {
