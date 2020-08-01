@@ -4,6 +4,7 @@ using UnityEngine;
 using UniRx;
 using System;
 
+// 本当はInterfaceにしたいけれども監視用メンバが置けないのでBaseクラスという扱いにする
 public class InputProviderBase
 {
     // 移動操作監視
