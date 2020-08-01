@@ -15,12 +15,17 @@ package Player {
 package InputProvider {
     class TouchInputProvider {}
     class PCInputProvider {}
-    class KeyOperation {}
+    class KeyOperation {
+        + IObservable<Unit> OnRightKey
+        + IObservable<Unit> OnLeftKey
+    }
 }
 
 package InputPresenter {
     class InputPresenter {}
-    class InputProviderBase {}
+    class InputProviderBase {
+        + IObservable<MoveDirection> OnMove
+    }
 }
 
 TouchInputProvider -up-|> InputProviderBase
@@ -29,8 +34,12 @@ PCInputProvider -up-|> InputProviderBase
 
 package UI {
     class RightButton {
+        + bool buttonDown
+        + IObservable<bool> OnButtonDown
     }
     class LeftButton {
+        + bool buttonDown
+        + IObservable<bool> OnButtonDown
     }
 
 }

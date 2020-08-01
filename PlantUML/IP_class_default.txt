@@ -26,10 +26,10 @@ PCInputProvider -up-|> IInputProvider
 
 package UI {
     class RightButton {
-        + bool IsPushDown
+        + bool buttonDown
     }
     class LeftButton {
-        + bool IsPushDown
+        + bool buttonDown
     }
 }
 note bottom of RightButton : OnPointerDown, OnpointerUpの\nEventTriggerでボタンが押されているか\n状態を保持する
