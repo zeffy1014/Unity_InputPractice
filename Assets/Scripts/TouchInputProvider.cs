@@ -6,8 +6,12 @@ using System;
 using Zenject;
 
 // 左右のuGUIボタンから左右移動操作を発行する
-public class TouchInputProvider : InputProviderBase
+public class TouchInputProvider : IInputProvider
 {
+    // 移動操作監視(OnMoveをoverride)
+    protected Subject<MoveDirection> onMoveSubject = new Subject<MoveDirection>();
+    public IObservable<MoveDirection> OnMove => onMoveSubject;
+
     private MoveButton rightButton;
     private MoveButton leftButton;
 

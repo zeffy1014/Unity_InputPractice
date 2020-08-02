@@ -23,13 +23,13 @@ package InputProvider {
 
 package InputPresenter {
     class InputPresenter {}
-    class InputProviderBase {
+    interface IInputProvider {
         + IObservable<MoveDirection> OnMove
     }
 }
 
-TouchInputProvider -up-|> InputProviderBase
-PCInputProvider -up-|> InputProviderBase
+TouchInputProvider -up-|> IInputProvider
+PCInputProvider -up-|> IInputProvider
 
 
 package UI {
@@ -49,8 +49,8 @@ package UnityEngine {
 }
 
 /'依存関係'/
-InputPresenter <.right. InputProviderBase : 各種操作を通知
-InputPresenter -left-> InputProviderBase : Subscribe
+InputPresenter <.right. IInputProvider : 各種操作を通知
+InputPresenter -left-> IInputProvider : Subscribe
 InputPresenter -> Player : 移動させる
 TouchInputProvider <.. LeftButton : ボタン押され中通知
 TouchInputProvider --> LeftButton  : Subscribe

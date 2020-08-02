@@ -5,8 +5,12 @@ using UniRx;
 using System;
 
 // マウスやキーボード入力から左右移動操作を発行する
-public class PCInputProvider : InputProviderBase
+public class PCInputProvider : IInputProvider
 {
+    // 移動操作監視(OnMoveをoverride)
+    protected Subject<MoveDirection> onMoveSubject = new Subject<MoveDirection>();
+    public IObservable<MoveDirection> OnMove => onMoveSubject;
+
     private KeyOperation key;
 
     PCInputProvider(KeyOperation key)

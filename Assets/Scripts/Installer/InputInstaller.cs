@@ -14,13 +14,13 @@ public class InputInstaller : MonoInstaller<InputInstaller>
 // 携帯端末用
 #if UNITY_ANDROID || UNITY_IOS
         // ボタンタッチ操作関連のBind
-        Container.Bind<InputProviderBase>().To<TouchInputProvider>().AsSingle();
+        Container.Bind<IInputProvider>().To<TouchInputProvider>().AsSingle();
         Container.Bind<MoveButton>().WithId(MoveDirection.Right).FromInstance(rightButton).AsCached().IfNotBound();
         Container.Bind<MoveButton>().WithId(MoveDirection.Left).FromInstance(leftButton).AsCached().IfNotBound();
 // 携帯以外(PCなど)
 #else
         // キーボード操作関連のBind
-        Container.Bind<InputProviderBase>().To<PCInputProvider>().AsSingle();
+        Container.Bind<IInputProvider>().To<PCInputProvider>().AsSingle();
         Container.Bind<KeyOperation>().FromNewComponentOnNewGameObject().AsCached();
 #endif
 

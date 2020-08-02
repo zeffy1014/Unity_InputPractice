@@ -6,9 +6,9 @@ using UniRx;
 public class InputPresenter
 {
     private Player player;
-    private InputProviderBase input;
+    private IInputProvider input;
 
-    InputPresenter(InputProviderBase input, Player player)
+    InputPresenter(IInputProvider input, Player player)
     {
         this.player = player;
         this.input = input;

@@ -5,11 +5,10 @@ using UniRx;
 using System;
 
 // 本当はInterfaceにしたいけれども監視用メンバが置けないのでBaseクラスという扱いにする
-public class InputProviderBase
+public interface IInputProvider
 {
     // 移動操作監視
-    protected Subject<MoveDirection> onMoveSubject = new Subject<MoveDirection>();
-    public IObservable<MoveDirection> OnMove => onMoveSubject;
+    IObservable<MoveDirection> OnMove { get; }
 
     // 具体的な操作発行は継承先にて実施
 }
